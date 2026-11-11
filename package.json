@@ -1,0 +1,20 @@
+{
+  "name": "therealvishnuvinayan-profile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "fetch": "node scripts/fetch-stats.mjs",
+    "build": "node scripts/generate.mjs",
+    "refresh": "npm run fetch && npm run build && npm test",
+    "preview": "node scripts/preview.mjs",
+    "test": "node --test tests/*.test.mjs && node scripts/validate.mjs",
+    "check:visual": "node scripts/check-visual.mjs"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
+    "marked": "17.0.1",
+    "playwright": "1.61.1"
+  }
+}

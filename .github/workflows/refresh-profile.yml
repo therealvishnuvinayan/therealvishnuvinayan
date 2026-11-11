@@ -1,0 +1,40 @@
+name: Refresh public profile
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 3 * * *'
+
+# Opt in after publication by setting the repository variable
+# PROFILE_AUTO_REFRESH=true. Manual runs remain available.
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.event_name == 'workflow_dispatch' || vars.PROFILE_AUTO_REFRESH == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      # The collector deliberately does not use GITHUB_TOKEN or any PAT.
+      - run: npm run refresh
+      - name: Commit generated public artifacts
+        run: |
+          git add -- README.md data/github-public.json data/activity.csv assets/profile-*.svg assets/profile-*.png
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Refresh public GitHub profile snapshot'
+          git push

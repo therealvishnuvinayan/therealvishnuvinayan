@@ -26,7 +26,7 @@ export function artwork(data, theme, mobile) {
   };
   const chip = (x,y,label,w) => {rect(x,y,w,32,p.inset,p.line,7);mono(x+12,y+21,label,13,p.cyan);};
 
-  add(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="title description"><title id="title">Vishnu Vinayan — AI Engineer</title><desc id="description">AI engineering profile. GenAI, RAG, AI agents and full-stack engineering. Ask AI at Bamboo Card and independent BizBrain AI. Public GitHub data collected ${escape(data.fetchedAt)}. Full text and chart data are available in the README and data directory.</desc><defs><radialGradient id="halo"><stop stop-color="${p.glow}" stop-opacity=".6"/><stop offset="1" stop-color="${p.bg}" stop-opacity="0"/></radialGradient><linearGradient id="accent" x2="1" y2="1"><stop stop-color="${p.cyan}"/><stop offset="1" stop-color="${p.blue}"/></linearGradient><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="${p.grid}"/></pattern></defs><g font-family="'IBM Plex Sans',Arial,sans-serif">`);
+  add(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="title description"><title id="title">Vishnu Vinayan — AI Engineer</title><desc id="description">AI engineering profile. GenAI, RAG, AI agents and full-stack engineering. Ask AI at Bamboo Card and independent BizBrainAI. Public GitHub data collected ${escape(data.fetchedAt)}. Full text and chart data are available in the README and data directory.</desc><defs><radialGradient id="halo"><stop stop-color="${p.glow}" stop-opacity=".6"/><stop offset="1" stop-color="${p.bg}" stop-opacity="0"/></radialGradient><linearGradient id="accent" x2="1" y2="1"><stop stop-color="${p.cyan}"/><stop offset="1" stop-color="${p.blue}"/></linearGradient><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="${p.grid}"/></pattern></defs><g font-family="'IBM Plex Sans',Arial,sans-serif">`);
   rect(0,0,W,H,p.bg,p.line,24);
   add(`<rect x="1" y="1" width="${W-2}" height="${mobile?780:580}" rx="24" fill="url(#grid)"/><ellipse cx="${mobile?300:950}" cy="260" rx="${mobile?300:450}" ry="330" fill="url(#halo)"/>`);
   line(M,92,W-M,92);
@@ -83,7 +83,7 @@ export function artwork(data, theme, mobile) {
   section(py,'02','Selected AI work','PRODUCTION + INDEPENDENT');
   const projects=[
     {name:'Ask AI',status:'IN PRODUCTION',sub:'BAMBOO CARD',desc:mobile?['A developer documentation','assistant, deployed in the','Bamboo Card documentation.']:['A production-deployed developer','documentation assistant at Bamboo Card.'],footer:'docs.bamboocardportal.com ↗'},
-    {name:'BizBrain AI',status:'IN DEVELOPMENT',sub:'INDEPENDENT PROJECT',desc:mobile?['An agentic business intelligence','platform, independently built','and under active development.']:['An independent agentic business intelligence','platform under active development.'],footer:'Private source · Public overview only'}
+    {name:'BizBrainAI',status:'IN DEVELOPMENT',sub:'INDEPENDENT PROJECT',desc:mobile?['An independent Applied AI','project for business intelligence,','under active development.']:['An independent Applied AI project for','business intelligence, under active development.'],footer:'Public source · Frontend demo'}
   ];
   projects.forEach((v,i)=>{
     const x=mobile?M:M+i*560,y=py+30+(mobile?i*300:0),w=mobile?inner:536,h=mobile?280:280;

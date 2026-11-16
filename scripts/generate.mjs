@@ -28,7 +28,7 @@ const a=data.account, activity=data.activity;
 const picture = theme => `<a href="./assets/profile-${theme}-desktop.png#gh-${theme}-mode-only">
 <picture>
   <source media="(max-width: 900px)" srcset="./assets/profile-${theme}-mobile.png" />
-  <img src="./assets/profile-${theme}-desktop.png" width="100%" alt="Vishnu Vinayan — AI Engineer in Dubai. GenAI, RAG, AI agents and full-stack engineering. 10+ years in software, 8+ in the UAE. Featured: Ask AI at Bamboo Card and independent BizBrain AI. Public GitHub snapshot: ${a.publicRepositories} public repositories, ${a.nonForkRepositories} non-forks, ${a.starsOnNonForkRepositories} stars on non-forks, ${a.followers} follower${a.followers===1?'':'s'}; ${activity.total} observed public events in the displayed 30-day window. Full profile and chart data follow below." />
+  <img src="./assets/profile-${theme}-desktop.png" width="100%" alt="Vishnu Vinayan — AI Engineer in Dubai. GenAI, RAG, AI agents and full-stack engineering. 10+ years in software, 8+ in the UAE. Featured: Ask AI at Bamboo Card and independent BizBrainAI. Public GitHub snapshot: ${a.publicRepositories} public repositories, ${a.nonForkRepositories} non-forks, ${a.starsOnNonForkRepositories} stars on non-forks, ${a.followers} follower${a.followers===1?'':'s'}; ${activity.total} observed public events in the displayed 30-day window. Full profile and chart data follow below." />
 </picture>
 </a>`;
 const readme = `${picture('dark')}
@@ -55,8 +55,11 @@ ${picture('light')}
 **[Ask AI — Bamboo Card](https://docs.bamboocardportal.com/)**  
 A production-deployed developer documentation assistant at Bamboo Card. Use the **Ask AI** entry point on the public documentation site.
 
-**BizBrain AI — Independent project**  
-An independent agentic business intelligence platform under active development. Its source repository is private.
+**[BizBrainAI — Independent Applied AI project](https://github.com/therealvishnuvinayan/BizBrainAI)**  
+A public, independent Applied AI project under active development, exploring business questions with inspectable evidence. The [Next.js frontend demo](https://bizbrainai.vercel.app) uses synthetic local data and prepared investigations. A separate FastAPI/PostgreSQL backend implements bounded tool calling with LangGraph and is verified offline. The demo does not call the backend; backend deployment and a live end-to-end AI answer are not verified.
+
+**[Video Sentiment Model](https://github.com/therealvishnuvinayan/video-sentiment-model)**  
+An experimental multimodal ML project exploring emotion and sentiment classification from text, video and audio. It includes measured text-only baselines and synthetic pipeline verification. Real-media multimodal training and accuracy remain unvalidated.
 
 ## Technology stack
 

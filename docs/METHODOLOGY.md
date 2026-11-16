@@ -9,6 +9,8 @@ The profile separates user-supplied professional information from measured publi
 - [Public event API](https://api.github.com/users/therealvishnuvinayan/events/public?per_page=100): up to three pages of recent public events.
 - [GitHub events documentation](https://docs.github.com/en/rest/activity/events): feed limits and latency.
 - [Bamboo Card's public documentation](https://docs.bamboocardportal.com/): the publicly visible Ask AI feature. Vishnu's involvement and production status are supplied by the profile owner, not independently inferred from source code.
+- [BizBrainAI public repository](https://github.com/therealvishnuvinayan/BizBrainAI): project status and the separation between the [Next.js frontend demo](https://bizbrainai.vercel.app) and the FastAPI/PostgreSQL/LangGraph backend.
+- [Video Sentiment Model public repository](https://github.com/therealvishnuvinayan/video-sentiment-model): experimental scope, measured text-only baselines, synthetic pipeline verification, and real-media limitations.
 
 The collector uses only unauthenticated GET requests. It rejects private/non-public records, verifies repository ownership, deduplicates repositories and events, and checks repository pagination against the account's public count. Raw repositories, repository names, event payloads, commit messages, email addresses, and source files are not saved.
 
@@ -33,13 +35,14 @@ Collection is a sequence of API reads, not an atomic database snapshot. Counts m
 
 ## Featured work
 
-Only the two projects explicitly approved in the brief are featured:
+The owner explicitly selected three projects for the README text. The dashboard artwork retains its existing two cards: Ask AI and BizBrainAI.
 
 - **Ask AI:** product name, supplied high-level description, employer attribution, and public documentation URL. No company source, credentials, internal diagrams, infrastructure, private URLs, metrics, or implementation claims are included.
-- **BizBrain AI:** supplied product name, independent ownership, purpose, and development status. The repository remains private; no repository name, URL, code, or internal implementation is included.
+- **BizBrainAI:** a public, independent Applied AI project under active development. Its hosted Next.js demo uses synthetic local data and prepared investigations. The separate FastAPI/PostgreSQL backend implements bounded tool calling with LangGraph and is verified offline; the frontend does not call it. Backend deployment and a live end-to-end AI answer are not verified. The repository and frontend demo are linked separately.
+- **Video Sentiment Model:** an experimental multimodal ML project for emotion and sentiment classification from text, video and audio. Measured results are text-only baselines; synthetic pipeline verification is not evidence of multimodal accuracy. Real-media multimodal training and accuracy remain unvalidated. Only the public repository and a high-level description are featured.
 
-No additional repository was selected or promoted. Aggregate public repository metadata was collected only for statistics. No source-code audit of candidate repositories was performed because no candidates were featured. Before adding another project, verify ownership, license, code quality, employer/customer disclosure rights, and absence of secrets; public visibility alone is not disclosure permission.
+The two independent projects' public READMEs were reviewed to corroborate these descriptions. This was not a source-code, security, or license audit. No project code, datasets, private/company material, or credentials are copied into this profile. Project inclusion is authorized by the owner's brief; aggregate public repository metadata is collected separately, only for statistics.
 
 Professional positioning, experience, location, core technologies, and project status come from the owner's brief. They are not computed from repository metadata. The neural graph and context/retrieve/reason/act line are original conceptual artwork, not a depiction of either featured project's implementation.
 
-No ranks, streaks, achievements, invented contribution totals, synthetic chart values, or project performance claims are used.
+No ranks, streaks, achievements, invented contribution totals, synthetic chart values, or numerical project performance claims are used. References to measured text-only baselines describe the published project's verification scope, not a multimodal performance claim.

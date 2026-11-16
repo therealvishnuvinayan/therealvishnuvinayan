@@ -29,7 +29,12 @@ for(const theme of ['dark','light']) for(const layout of ['desktop','mobile']) {
 }
 const totals=(await read('data/activity.csv')).trim().split('\n').slice(1).reduce((n,line)=>n+Number(line.split(',')[1]),0);
 assert.equal(totals,data.activity.total);
-assert.doesNotMatch(readme,/github\.com\/[^\s"<>)]*(?:bizbrain|bamboo)/i);
+// The owner explicitly features this public project; keep company-source
+// links and other BizBrain repository URLs outside the disclosure boundary.
+for (const [,href] of html.matchAll(/href="([^"]+)"/g)) {
+  if (href === 'https://github.com/therealvishnuvinayan/BizBrainAI') continue;
+  assert.doesNotMatch(href,/github\.com\/[^\s"<>)]*(?:bizbrain|bamboo)/i);
+}
 assert.doesNotMatch(await read('data/github-public.json'),/"(?:repo|payload|email|token|full_name)"\s*:/i);
 // Scan publishable text, excluding dependencies and local-only previews.
 async function scan(dir='') {
